@@ -1,16 +1,14 @@
 function convertTemperature() {
   const temperature = parseFloat(document.getElementById('temperature').value);
-  const fromUnit = document.getElementById('fromUnit').value;
-  const toUnit = document.getElementById('toUnit').value;
   let convertedTemperature;
 
-  if (fromUnit === 'C' && toUnit === 'F') {
-    convertedTemperature = (temperature * 9/5) + 32; // Celsius to Fahrenheit conversion
-  } else if (fromUnit === 'F' && toUnit === 'C') {
-    convertedTemperature = (temperature - 32) * 5/9; // Fahrenheit to Celsius conversion
-  } else {
-    convertedTemperature = temperature; // If units are the same, no conversion needed
-  }
+  // Always converting from Celsius to Fahrenheit
+  convertedTemperature = (temperature * 9/5) + 32;
 
-  document.getElementById('convertedTemperature').textContent = convertedTemperature.toFixed(2);
+  document.getElementById('convertedTemperature').value = convertedTemperature.toFixed(2);
+}
+
+function resetTemperature() {
+  document.getElementById('temperature').value = "";
+  document.getElementById('convertedTemperature').value = "";
 }
