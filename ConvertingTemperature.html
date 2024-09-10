@@ -5,18 +5,25 @@
   <link rel="stylesheet" type="text/css" href="functionC.css">
 </head>
 <body>
-  <div id="converter">
-    <input type="number" id="temperature" placeholder="Enter temperature">
-    <select id="fromUnit">
-      <option value="C">Celsius (°C)</option>
-      <option value="F">Fahrenheit (°F)</option>  
-    </select>
-    <select id="toUnit">
-      <option value="F">Fahrenheit (°F)</option>
-      <option value="C">Celsius (°C)</option>
-    </select>
-    <button onclick="convertTemperature()">Convert</button>
-    <p>Converted Temperature: <span id="convertedTemperature"></span></p>
+  <div class="container">
+    <div class="converter">
+      <label for="temperature">Enter temperature:</label>
+      <input type="number" id="temperature" placeholder="Enter temperature">
+
+      <label for="fromUnit">From:</label>
+        <option value="C" selected>Celsius (°C)</option>
+
+      <label for="toUnit">To:</label>
+        <option value="F" selected>Fahrenheit (°F)</option>
+
+      <button onclick="convertTemperature()">Convert</button>
+      <button onclick="resetTemperature()">Reset</button> 
+
+      <div class="result">
+        <label for="convertedTemperature">Converted Temperature:</label>
+        <input type="text" id="convertedTemperature" readonly> 
+      </div>
+    </div>
   </div>
   <script src="function.js"></script>
 </body>
