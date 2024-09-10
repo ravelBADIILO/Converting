@@ -1,46 +1,77 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f0f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   margin: 0;
-  padding: 0;
 }
 
 .container {
-  width: 100%;
-  max-width: 400px;
-  margin: 50px auto;
-  padding: 20px;
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  text-align: center;
+  width: 450px;
+  display: flex;
+  gap: 30px;
 }
 
-input[type="number"],
-select,
-button {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button {
-  background-color: #4CAF50;
-  color: white;
-  border: outset;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
+.converter { 
+  flex: 1;
+  background-color: #e6f2ff;
+  padding: 30px;
+  border-radius: 15px;
 }
 
 .result {
-  margin-top: 10px;
+  flex: 0 0 250px;
+  background-color: #e6f2ff; 
+  padding: 30px;
+  border-radius: 15px;
+  text-align: left;
+}
+
+.converter label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.converter input[type="number"], 
+.converter select, 
+.converter input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  margin: 12px 0;
   font-size: 18px;
-  border-top: 1px solid #ccc;
-  padding-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.converter button {
+  background-color: #007bff;
+  color: #fff; 
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.converter button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  
+}
+
+.result label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
 }
