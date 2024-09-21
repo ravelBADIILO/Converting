@@ -4,12 +4,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
+    height: 1vh;
+    margin: 30%;
 }
 
-h1 {
-    color: #000000;
+h1{
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
 }
 
 table {
@@ -17,10 +18,17 @@ table {
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    width: 30;
+    font-family: 'Times New Roman', serif;
+
 }
 
-td {
+th, td {
     padding: 10px;
+}
+
+#Password-Validation-header{
+    text-align: center;
 }
 
 input[type="text"],
