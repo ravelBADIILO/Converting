@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Performance Task 3</title>
+<link rel="stylesheet" href="ComputationOfGradesC.css">
+</head>
+<body>
+
+<h2>Performance Task 3</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Score</th>
+      <th>Range</th>
+      <th>Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Quiz 1</td>
+      <td><input type="text" id="quiz1Score" value="45"></td>
+      <td><input type="text" id="quiz1Range" value="50"></td>
+      <td class="percentage" id="quiz1Percentage"></td>
+    </tr>
+    <tr>
+      <td>Quiz 2</td>
+      <td><input type="text" id="quiz2Score" value="28"></td>
+      <td><input type="text" id="quiz2Range" value="30"></td>
+      <td class="percentage" id="quiz2Percentage"></td>
+    </tr>
+    <tr>
+      <td>Quiz 3</td>
+      <td><input type="text" id="quiz3Score" value="15"></td>
+      <td><input type="text" id="quiz3Range" value="20"></td>
+      <td class="percentage" id="quiz3Percentage"></td>
+    </tr>
+    <tr>
+      <td><b>Total Quizzes</b></td>
+      <td>
+          <label for="showGrade">Show Grade:</label>
+          <input type="checkbox" id="totalQuizzesScore" onclick="showGrade()">
+      </td>
+      <td><button onclick="computeQuizzes()">Compute Quizzes</button></td>
+      <td class="percentage" id="totalQuizzesPercentage"></td>
+    </tr>
+    <tr>
+      <td>Performance Task 1</td>
+      <td><input type="text" id="pt1Score" value="30"></td>
+      <td><input type="text" id="pt1Range" value="35"></td>
+      <td class="percentage" id="pt1Percentage"></td>
+    </tr>
+    <tr>
+      <td>Performance Task 2</td>
+      <td><input type="text" id="pt2Score" value="28"></td>
+      <td><input type="text" id="pt2Range" value="30"></td>
+      <td class="percentage" id="pt2Percentage"></td>
+    </tr>
+    <tr>
+      <td>Performance Task 3</td>
+      <td><input type="text" id="pt3Score" value="15"></td>
+      <td><input type="text" id="pt3Range" value="15"></td>
+      <td class="percentage" id="pt3Percentage"></td>
+    </tr>
+    <tr>
+      <td><b>Total Performance Tasks</b></td>
+      <td>
+          <label for="showGrade">Show Grade:</label>
+          <input type="checkbox" id="totalPtScore" onclick="showGrade()">
+      </td>
+      <td><button onclick="computePerformanceTasks()">Compute Performance Tasks</button></td>
+      <td class="percentage" id="totalPtPercentage"></td>
+    </tr>
+    <tr>
+      <td>Periodical Exam</td>
+      <td><input type="text" id="examScore" value="55"></td>
+      <td><input type="text" id="examRange" value="60"></td>
+      <td class="percentage" id="examPercentage"></td>
+    </tr>
+    <tr>
+      <td><b>Total Exam</b></td>
+      <td>
+          <label for="showGrade">Show Grade:</label>
+          <input type="checkbox" id="examScore" onclick="showGrade()">
+      </td>
+      <td><button onclick="computeExamPercentage()">Compute Exam Percentage</button></td>
+    </tr>
+    <tr>
+      <td><b>Final Grade</b></td>
+      <td>
+          <label for="showGrade">Show Grade:</label>
+          <input type="checkbox" id="showGrade" onclick="showGrade()">
+      </td>
+      <td><button onclick="computeGrade()">Compute Grade</button></td>
+      <td class="percentage" id="finalGrade"></td>
+    </tr>
+  </tbody>
+</table>
+  
+<script src="ComputationOfGradesJ.js"></script>
+
+</body>
+</html>

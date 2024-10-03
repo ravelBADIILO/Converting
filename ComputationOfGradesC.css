@@ -1,0 +1,95 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f6ff; /* Light blue*/
+  padding: 20px;
+  color: #333; /* Dark gray */
+}
+
+h2 {
+  color: #333; /* Dark gray */
+  margin-bottom: 20px;
+}
+
+table {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px; 
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  backdrop-filter: blur(10px);
+}
+
+th {
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly less transparent white */
+  padding: 12px;
+  text-align: left;
+  font-weight: bold;
+  color: #333; /* Dark gray */
+}
+
+tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.85); /* Slightly darker shade of white */
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  color: #333; /* Dark gray */
+  width: 100px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd; /* Light gray */
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+input[type="range"]{
+  width: 100px;
+  text-align: left;
+}
+
+button {
+  background-color: #6A5ACD; /* SlateBlue button */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s ease;
+  align-items: center;
+}
+
+button:hover {
+  background-color: #9370DB;
+}
+
+@media (max-width: 600px) {
+  table {
+    width: 100%;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+  }
+}
+
+.percentage {
+  font-weight: bold;
+  color: #007bff;
+}
+
+#finalGrade {
+  font-size: 20px; /* Larger font size for final grade */
+}
