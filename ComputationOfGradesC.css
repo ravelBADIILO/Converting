@@ -71,6 +71,13 @@ button {
   align-items: center;
 }
 
+h2{
+  text-align: center;
+}
+h4{
+  text-align: up;
+}
+
 button:hover {
   background-color: #9370DB;
 }
