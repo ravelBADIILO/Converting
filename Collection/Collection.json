@@ -8,7 +8,7 @@
     { "id": 6, "name": "Tony Tony Chopper", "image": "Chopper.png", "rarity": "Common", "description": "The Doctor!", "price": 500 },
     { "id": 7, "name": "Franky", "image": "Franky.png", "rarity": "Rare", "description": "The Shipwright!", "price": 1500 },
     { "id": 8, "name": "Brook", "image": "Brook.jpeg", "rarity": "Super Rare", "description": "The Musician!", "price": 2500 },
-    { "id": 9, "name": "Jinbei", "image": "Jinbei.jpeg", "rarity": "Rare", "description": "The Helmsman!", "price": 1500 },
+    { "id": 9, "name": "Jinbei", "image": "Jimbei.jpeg", "rarity": "Rare", "description": "The Helmsman!", "price": 1500 },
     { "id": 10, "name": "Nico Robin", "image": "Robin.jpeg", "rarity": "Super Rare", "description": "The Archaeologist!", "price": 2500 }
   ]
 }
