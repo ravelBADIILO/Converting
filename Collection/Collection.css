@@ -1,0 +1,59 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f8f8f8; /* Light gray background */
+  color: #333; /* Dark gray text */
+  line-height: 1.6; /* Improves readability */
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #444; /* Slightly darker gray for heading */
+  margin-bottom: 30px;
+}
+
+.card {
+  background-color: #fff; /* White card background */
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  width: 200px; /* Adjust as needed */
+  transition: transform 0.3s ease; /* Smooth hover effect */
+}
+
+.card img {
+  max-width: 150px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  color: #555; /* Slightly darker gray for card title */
+  margin-top: 0;
+}
+
+.card p {
+  font-size: 14px;
+  color: #666; /* Lighter gray for description */
+}
+
+/* Rarity-based styling */
+.card.common {
+  border-color: #d6d6d6;
+}
+
+.card.rare {
+  border-color: #a6d6a6; /* Light green */
+}
+
+.card.super-rare {
+  border-color: #a6a6d6; /* Light purple */
+}
+
+
+.card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+}
