@@ -1,0 +1,14 @@
+{
+  "cards": [
+    { "id": 1, "name": "Monkey D. Luffy", "image": "Luffy.jpeg", "rarity": "Super Rare", "description": "The Straw Hat Captain!", "price": 2500 },
+    { "id": 2, "name": "Roronoa Zoro", "image": "Zoro.jpeg", "rarity": "Rare", "description": "The Swordsman!", "price": 1500 },
+    { "id": 3, "name": "Nami", "image": "Nami.png", "rarity": "Common", "description": "The Navigator!", "price": 500 },
+    { "id": 4, "name": "Usopp", "image": "Usopp.jpeg", "rarity": "Common", "description": "The Sniper!", "price": 500 },
+    { "id": 5, "name": "Sanji", "image": "Sanji.jpeg", "rarity": "Rare", "description": "The Cook!", "price": 1500 },
+    { "id": 6, "name": "Tony Tony Chopper", "image": "Chopper.png", "rarity": "Common", "description": "The Doctor!", "price": 500 },
+    { "id": 7, "name": "Franky", "image": "Franky.png", "rarity": "Rare", "description": "The Shipwright!", "price": 1500 },
+    { "id": 8, "name": "Brook", "image": "Brook.jpeg", "rarity": "Super Rare", "description": "The Musician!", "price": 2500 },
+    { "id": 9, "name": "Jinbe", "image": "Jinbei.jpeg", "rarity": "Rare", "description": "The Helmsman!", "price": 1500 },
+    { "id": 10, "name": "Nico Robin", "image": "Robin.jpeg", "rarity": "Super Rare", "description": "The Archaeologist!", "price": 2500 }
+  ]
+}
