@@ -9,7 +9,7 @@ h3 {
 }
 
 .game-container {
-    display: center;
+    display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
@@ -17,8 +17,8 @@ h3 {
 }
 
 .words-container, .sentence-container {
-    display: center;
-    flex-wrap: wrap; /* Allow words to wrap to multiple lines */
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
