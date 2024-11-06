@@ -1,79 +1,134 @@
-//store the reference  ...box ... droppable
-const draggableElement = document.querySelectorAll('.word');
-const droppableElement = document.querySelectorAll('.sentence-slot');
-let score = 0;
-
-//DRAG START
-draggableElement.forEach(element => {
-  element.addEventListener('dragstart', (drgStart) => {
-    drgStart.dataTransfer.setData('text', drgStart.target.id);
-    drgStart.currentTarget.classList.add('draggableFormat');
-  }); 
-});
-
-//DROP EVENT
-droppableElement.forEach(element => {
-  element.addEventListener('drop', drpEvt => {
-    drpEvt.preventDefault();
-    const droppedElementId = drpEvt.dataTransfer.getData('text'); 
-    const draggableElement = document.getElementById(droppedElementId);
-
-    // Check if the slot is already occupied
-    if (drpEvt.target.children.length === 0) {
-      drpEvt.target.appendChild(draggableElement); 
-    } else {
-      // Handle the case where the slot is already occupied (e.g., allow swapping)
-      // You might want to remove the existing word and then append the new one
-    }
-  }); 
-
-  //DRAGOVER
-  element.addEventListener('dragover', (drgOverEvt) => {
-    drgOverEvt.preventDefault();
-  }); 
-});
-
-//DRAGEND
-draggableElement.forEach(element => {
-  element.addEventListener('dragend', drgendEvt => {
-    drgendEvt.currentTarget.classList.remove('draggableFormat');
-  });
-});
-
-// Check Answer Button
-const checkAnswerButton = document.getElementById('checkAnswer');
-const tryAgainButton = document.getElementById('tryAgain');
+const wordsContainer = document.getElementById('wordsContainer');
+const sentenceContainer = document.getElementById('sentenceContainer');
 const remarksDisplay = document.getElementById('remarks');
 const scoresDisplay = document.getElementById('scores');
+const playAgainButton = document.getElementById('playAgainButton');
+const checkAnswerButton = document.getElementById('checkAnswerButton');
+let score = 0;
 
-checkAnswerButton.addEventListener('click', () => {
-  const sentenceSlots = document.querySelectorAll('.sentence-slot');
-  const correctSentence = "The quick brown fox jumps over the lazy dog.";
-  let userSentence = "";
+// Array of sentences to randomize
+const sentences = [
+    "Ang aso ay tumalon sa ibabaw ng bakod.",
+    "Ang mabilis na kuneho ay tumakbo sa kagubatan.",
+    "Ang matamis na prutas ay nakasabit sa puno.",
+    "Ang malaking elepante ay kumakain ng damo.",
+    "Ang maliit na ibon ay kumakanta sa sanga."
+];
 
-  sentenceSlots.forEach(slot => {
-    if (slot.children.length > 0) {
-      userSentence += slot.children[0].textContent + " ";
+let currentSentence = "";
+let words = [];
+let originalWordOrder = []; // To store the original order of words
+
+// Function to create the game UI
+function createGameUI() {
+    wordsContainer.innerHTML = ''; // Clear previous words
+    sentenceContainer.innerHTML = ''; // Clear previous sentence slots
+
+    // Create words elements
+    words.forEach((word, index) => {
+        const wordElement = document.createElement('div');
+        wordElement.classList.add('word');
+        wordElement.textContent = word;
+        wordElement.setAttribute('id', `word-${index}`);
+        wordElement.setAttribute('draggable', 'true');
+        wordElement.addEventListener('dragstart', handleDragStart);
+        wordElement.addEventListener('dragend', handleDragEnd);
+        wordsContainer.appendChild(wordElement);
+    });
+
+    // Create sentence slots
+    currentSentence.split(' ').forEach((_, index) => {
+        const slotElement = document.createElement('div');
+        slotElement.classList.add('sentence-slot');
+        slotElement.setAttribute('data-word-index', index);
+        slotElement.addEventListener('dragover', handleDragOver);
+        slotElement.addEventListener('drop', handleDrop);
+        sentenceContainer.appendChild(slotElement);
+    });
+}
+
+// Function to handle drag start
+function handleDragStart(event) {
+    event.dataTransfer.setData('text', event.target.id);
+    event.target.classList.add('draggableFormat');
+}
+
+// Function to handle drag end
+function handleDragEnd(event) {
+    event.target.classList.remove('draggableFormat');
+}
+
+// Function to handle drag over
+function handleDragOver(event) {
+    event.preventDefault();
+}
+
+// Function to handle drop
+function handleDrop(event) {
+    event.preventDefault();
+    const draggedWordId = event.dataTransfer.getData('text');
+    const draggedWord = document.getElementById(draggedWordId);
+    const wordIndex = parseInt(event.target.dataset.wordIndex);
+    const correctWord = words[wordIndex];
+
+    if (draggedWord.textContent === correctWord) {
+        // Correct match
+        event.target.appendChild(draggedWord);
+    } else {
+        // Incorrect match
+        remarksDisplay.innerText = "Subukan ulit!";
     }
-  });
+}
 
-  if (userSentence.trim() === correctSentence.trim()) {
-    remarksDisplay.innerText = "Correct!";
-    score += 1;
+// Function to start a new game
+function startGame() {
+    score = 0;
     scoresDisplay.innerText = score;
-  } else {
-    remarksDisplay.innerText = "Incorrect!";
-  }
-});
+    remarksDisplay.innerText = "";
 
-// Try Again Button
-tryAgainButton.addEventListener('click', () => {
-  // Reset the game state (clear the slots, reset score, etc.)
-  const sentenceSlots = document.querySelectorAll('.sentence-slot');
-  sentenceSlots.forEach(slot => {
-    slot.innerHTML = ''; // Clear the contents of each slot
-  });
-  score = 0;
-  scoresDisplay.innerText = score;
-  remarksDisplay.innerText = '';
-});
+    // Choose a random sentence
+    currentSentence = sentences[Math.floor(Math.random() * sentences.length)];
+    words = currentSentence.split(' ');
+
+    // Shuffle the words randomly
+    for (let i = words.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [words[i], words[j]] = [words[j], words[i]];
+    }
+
+    // Store the original order of words
+    originalWordOrder = [...words];
+
+    createGameUI();
+}
+
+// Function to check the answer
+function checkAnswer() {
+    const sentenceSlots = document.querySelectorAll('.sentence-slot');
+    let userSentence = "";
+
+    sentenceSlots.forEach(slot => {
+        if (slot.children.length > 0) {
+            userSentence += slot.children[0].textContent + " ";
+        }
+    });
+
+    if (userSentence.trim() === currentSentence.trim()) {
+        // Correct answer
+        remarksDisplay.innerText = "Napakahusay! Tama ang sagot mo!";
+        score++;
+        scoresDisplay.innerText = score;
+    } else {
+        // Incorrect answer
+        remarksDisplay.innerText = "Hindi tama ang pagkakasunod-sunod ng mga salita. Subukan ulit!";
+    }
+}
+
+// Start the game on page load
+startGame();
+
+// Event listener for "Play Again" button
+playAgainButton.addEventListener('click', startGame);
+
+// Event listener for "Pasa ang Sagot" button
+checkAnswerButton.addEventListener('click', checkAnswer);
