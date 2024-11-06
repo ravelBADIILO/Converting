@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sentence Builder</title>
+  <link rel="stylesheet" href="Game.css"> 
+</head>
+<body>
+  <div class="container">
+    <h1>Arrange the Words to Form a Correct Sentence</h1>
+
+    <div class="words-container">
+      <div class="word" draggable="true" id="word-1">dog</div>
+      <div class="word" draggable="true" id="word-2">the</div>
+      <div class="word" draggable="true" id="word-3">lazy</div>
+      <div class="word" draggable="true" id="word-4">over</div>
+      <div class="word" draggable="true" id="word-5">quick</div>
+      <div class="word" draggable="true" id="word-6">The</div>
+      <div class="word" draggable="true" id="word-7">brown</div>
+      <div class="word" draggable="true" id="word-8">jumps</div>
+      <div class="word" draggable="true" id="word-9">fox</div>
+    </div>
+
+    <div class="sentence-container">
+      <div class="sentence-slot" data-word-index="0"></div>
+      <div class="sentence-slot" data-word-index="1"></div>
+      <div class="sentence-slot" data-word-index="2"></div>
+      <div class="sentence-slot" data-word-index="3"></div>
+      <div class="sentence-slot" data-word-index="4"></div>
+      <div class="sentence-slot" data-word-index="5"></div>
+      <div class="sentence-slot" data-word-index="6"></div>
+      <div class="sentence-slot" data-word-index="7"></div>
+      <div class="sentence-slot" data-word-index="8"></div>
+    </div>
+
+    <div class="buttons">
+      <button id="checkAnswer">Check Answer</button>
+      <button id="tryAgain">Try Again</button>
+    </div>
+
+    <div id="remarks"></div>
+    <p>Score: <span id="scores">0</span></p>
+  </div>
+
+  <script src="Game.js"></script> 
+</body>
+</html>
