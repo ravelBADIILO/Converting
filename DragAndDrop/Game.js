@@ -17,27 +17,26 @@ const sentences = [
 
 let currentSentence = "";
 let words = [];
-let originalWordOrder = []; // To store the original order of words
+let shuffledWords = []; // Array to store the shuffled word order
 
 // Function to create the game UI
 function createGameUI() {
-    wordsContainer.innerHTML = ''; // Clear previous words
-    sentenceContainer.innerHTML = ''; // Clear previous sentence slots
+    wordsContainer.innerHTML = ''; // Linisin ang nakaraang mga salita
+    sentenceContainer.innerHTML = ''; // Linisin ang nakaraang mga puwang ng pangungusap
 
-    // Create words elements
-    words.forEach((word, index) => {
+    // Gumawa ng mga elemento ng salita
+    shuffledWords.forEach((word, index) => { 
         const wordElement = document.createElement('div');
         wordElement.classList.add('word');
-        // Reverse the word
-        wordElement.textContent = word.split('').reverse().join(''); 
-        wordElement.setAttribute('id', `word-${index}`);
+        wordElement.textContent = word;
+        wordElement.setAttribute('id', `word-${index}`); // Panatilihin ang ID batay sa orihinal na index
         wordElement.setAttribute('draggable', 'true');
         wordElement.addEventListener('dragstart', handleDragStart);
         wordElement.addEventListener('dragend', handleDragEnd);
         wordsContainer.appendChild(wordElement);
     });
 
-    // Create sentence slots
+    // Gumawa ng mga puwang ng pangungusap
     currentSentence.split(' ').forEach((_, index) => {
         const slotElement = document.createElement('div');
         slotElement.classList.add('sentence-slot');
@@ -70,16 +69,29 @@ function handleDrop(event) {
     const draggedWordId = event.dataTransfer.getData('text');
     const draggedWord = document.getElementById(draggedWordId);
     const wordIndex = parseInt(event.target.dataset.wordIndex);
-    const correctWord = words[wordIndex];
 
-    // Check if the dropped word is the correct word (reversed)
-    if (draggedWord.textContent === correctWord.split('').reverse().join('')) {
-        // Correct match
-        event.target.appendChild(draggedWord);
+    // Kunin ang orihinal na salita batay sa wordIndex
+    const originalWord = words[wordIndex]; 
+
+    // Suriin kung ang puwang ay may laman na
+    if (event.target.children.length === 0) {
+        event.target.appendChild(draggedWord); 
     } else {
-        // Incorrect match
-        remarksDisplay.innerText = "Subukan ulit!";
+        // Pangasiwaan ang kaso kung ang puwang ay may laman na (halimbawa, payagan ang pagpapalit)
+        // Maaari mong tanggalin ang umiiral na salita at pagkatapos ay i-append ang bago
     }
+
+    // Suriin kung tama ang sagot
+    if (draggedWord.textContent === originalWord) {
+        //console.log('Right');
+        score += 1;
+        document.getElementById('remarks').innerText = "Tama!";
+        document.getElementById('scores').innerText = score;
+    } else {
+        //console.log('Wrong');
+        document.getElementById('remarks').innerText = "Mali!";
+    } //end of if else
+
 }
 
 // Function to start a new game
@@ -88,17 +100,15 @@ function startGame() {
     scoresDisplay.innerText = score;
     remarksDisplay.innerText = "";
 
-    // Choose a random sentence
+    // Pumili ng random na pangungusap
     currentSentence = sentences[Math.floor(Math.random() * sentences.length)];
     words = currentSentence.split(' ');
 
-    // Store the original order of words
-    originalWordOrder = [...words];
-
     // Shuffle the words randomly
-    for (let i = originalWordOrder.length - 1; i > 0; i--) {
+    shuffledWords = [...words]; // Kopyahin ang array ng mga salita
+    for (let i = shuffledWords.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [originalWordOrder[i], originalWordOrder[j]] = [originalWordOrder[j], originalWordOrder[i]];
+        [shuffledWords[i], shuffledWords[j]] = [shuffledWords[j], shuffledWords[i]];
     }
 
     createGameUI();
@@ -111,28 +121,27 @@ function checkAnswer() {
 
     sentenceSlots.forEach(slot => {
         if (slot.children.length > 0) {
-            // Reverse the word before adding to the sentence
-            userSentence += slot.children[0].textContent.split('').reverse().join('') + " "; 
+            userSentence += slot.children[0].textContent + " ";
         }
     });
 
-    // Check if the user has arranged the words correctly
+    // Suriin kung tama ang pagkakasunod-sunod ng mga salita
     if (userSentence.trim() === currentSentence.trim()) {
-        // Correct answer
+        // Tama ang sagot
         remarksDisplay.innerText = "Napakahusay! Tama ang sagot mo!";
         score++;
         scoresDisplay.innerText = score;
     } else {
-        // Incorrect answer
+        // Mali ang sagot
         remarksDisplay.innerText = "Hindi tama ang pagkakasunod-sunod ng mga salita. Subukan ulit!";
     }
 }
 
-// Start the game on page load
+// Simulan ang laro kapag na-load ang page
 startGame();
 
-// Event listener for "Play Again" button
+// Event listener para sa "Play Again" button
 playAgainButton.addEventListener('click', startGame);
 
-// Event listener for "Pasa ang Sagot" button
+// Event listener para sa "Pasa ang Sagot" button
 checkAnswerButton.addEventListener('click', checkAnswer);
