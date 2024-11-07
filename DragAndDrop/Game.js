@@ -28,7 +28,8 @@ function createGameUI() {
     words.forEach((word, index) => {
         const wordElement = document.createElement('div');
         wordElement.classList.add('word');
-        wordElement.textContent = word;
+        // Reverse the word
+        wordElement.textContent = word.split('').reverse().join(''); 
         wordElement.setAttribute('id', `word-${index}`);
         wordElement.setAttribute('draggable', 'true');
         wordElement.addEventListener('dragstart', handleDragStart);
@@ -71,7 +72,8 @@ function handleDrop(event) {
     const wordIndex = parseInt(event.target.dataset.wordIndex);
     const correctWord = words[wordIndex];
 
-    if (draggedWord.textContent === correctWord) {
+    // Check if the dropped word is the correct word (reversed)
+    if (draggedWord.textContent === correctWord.split('').reverse().join('')) {
         // Correct match
         event.target.appendChild(draggedWord);
     } else {
@@ -109,7 +111,8 @@ function checkAnswer() {
 
     sentenceSlots.forEach(slot => {
         if (slot.children.length > 0) {
-            userSentence += slot.children[0].textContent + " ";
+            // Reverse the word before adding to the sentence
+            userSentence += slot.children[0].textContent.split('').reverse().join('') + " "; 
         }
     });
 
