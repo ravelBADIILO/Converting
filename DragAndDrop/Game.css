@@ -1,64 +1,75 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f5f5f5; /* Light gray background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
 h1 {
-    text-align: center;
-    color: seagreen;
+  text-align: center;
+  color: #4CAF50; /* Green */
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
 
 h3 {
   text-align: center;
-  color: seagreen ;
+  color: #4CAF50; /* Green */
+  font-size: 1.5em;
+  margin-bottom: 10px;
 }
 
 .game-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+  width: 80%;
+  max-width: 800px;
+  text-align: center;
 }
 
-.words-container, .sentence-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow words to wrap to multiple lines */
-    justify-content: center;
-    gap: 10px;
+.words-container,
+.sentence-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 .word {
-    padding: 10px 20px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    background-color: #e9ecef;
-    cursor: grab;
-    text-align: center;
-    font-size: 1.2em;
+  padding: 15px 25px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #e9ecef;
+  cursor: grab;
+  text-align: center;
+  font-size: 1.3em;
+  transition: background-color 0.3s ease;
+}
+
+.word:hover {
+  background-color: #d9d9d9;
 }
 
 .word.draggableFormat {
-    border: 3px dashed blue;
+  border: 3px dashed #007bff;
 }
 
 .sentence-slot {
-    width: 100px;
-    height: 50px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    background-color: #e9ecef;
-    cursor: drop;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.feedback {
-    text-align: center;
-}
-
-#playAgainButton, #checkAnswerButton {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1em;
+  width: 120px;
+  height: 60px;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #e9ecef;
+  cursor: drop;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
 }
