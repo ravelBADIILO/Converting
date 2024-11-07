@@ -90,14 +90,14 @@ function startGame() {
     currentSentence = sentences[Math.floor(Math.random() * sentences.length)];
     words = currentSentence.split(' ');
 
-    // Shuffle the words randomly
-    for (let i = words.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [words[i], words[j]] = [words[j], words[i]];
-    }
-
     // Store the original order of words
     originalWordOrder = [...words];
+
+    // Shuffle the words randomly
+    for (let i = originalWordOrder.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [originalWordOrder[i], originalWordOrder[j]] = [originalWordOrder[j], originalWordOrder[i]];
+    }
 
     createGameUI();
 }
@@ -113,6 +113,7 @@ function checkAnswer() {
         }
     });
 
+    // Check if the user has arranged the words correctly
     if (userSentence.trim() === currentSentence.trim()) {
         // Correct answer
         remarksDisplay.innerText = "Napakahusay! Tama ang sagot mo!";
