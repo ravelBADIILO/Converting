@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Christmas eCard for Lia</title>
+<style>
+body {
+  background-color: #f0f0f0; /* Light gray background */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card {
+  background-color: #fff; /* White background */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+}
+
+.message {
+  font-size: 16px;
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+h1 {
+  color: #388E8E; /* Teal color */
+}
+
+/* New Page Styling */
+.new-page {
+  display: none; /* Initially hidden */
+  background-color: #008000; /* Green background */
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+  width: 600px;
+  margin: 50px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.new-page.show {
+  display: block;
+}
+
+.new-page h2 {
+  color: #FFD700; /* Yellow heading */
+}
+
+.new-page .tree {
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid #008000; /* Green */
+  margin: 20px auto;
+  position: relative;
+}
+
+.new-page .tree::before,
+.new-page .tree::after {
+  content: "";
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.new-page .tree::before {
+  width: 0;
+  height: 0;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 80px solid #008000;
+}
+
+.new-page .tree::after {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 60px solid #008000;
+}
+
+/* Image Container (for your crush's picture) */
+.new-page .image-container {
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fff; /* White background for the image */
+}
+
+.new-page .image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image fills the container */
+}
+
+/* Button Styling */
+button {
+  background-color: #DD4E85; /* Red button */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>Merry Christmas, Lia!</h1>
+  <p>Enter your nickname to see a special message:</p>
+  <input type="text" id="nickname" placeholder="Enter your nickname">
+  <button onclick="checkNickname()">Submit</button>
+</div>
+
+<div class="new-page" id="newPage">
+  <h2>Merry Christmas!</h2>
+  <div class="tree"></div>
+  <div class="image-container">
+    <img src="Pic.jpeg" alt="Lia's Picture"> 
+  </div>
+  <p>[Your personalized message for Lia here]</p>
+</div>
+
+<script>
+function checkNickname() {
+  let enteredNickname = document.getElementById("nickname").value.toLowerCase();
+  let newPage = document.getElementById("newPage");
+  if (enteredNicname === "lia") {
+    newPage.classList.add("show");
+  } else {
+    alert("Incorrect nickname.");
+  }
+}
+</script>
+</body>
+</html>
