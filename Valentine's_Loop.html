@@ -4,7 +4,7 @@
 <title>Valentine's Day Fun!</title>
 <style>
 body {
-  background: linear-gradient(to bottom right, #f7d794, #e0b0ff); /* Gradient background */
+  background: linear-gradient(to bottom right, #f7d794, #e0b0ff);
   font-family: 'Arial', sans-serif;
   display: flex;
   justify-content: center;
@@ -14,28 +14,28 @@ body {
 }
 
 .container {
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 40px;
   text-align: center;
-  position: relative; /* For absolute positioning of hearts */
+  position: relative;
 }
 
 h1 {
-  color: #c71585; /* Medium Violet Red */
+  color: #c71585;
   font-size: 3em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 p {
   font-size: 1.2em;
-  color: #800080; /* Purple */
+  color: #800080;
   margin-bottom: 20px;
 }
 
 button {
-  background-color: #e9967a; /* Dark Salmon */
+  background-color: #e9967a;
   color: white;
   padding: 15px 30px;
   border: none;
@@ -47,14 +47,14 @@ button {
 }
 
 button:hover {
-  background-color: #cd5c5c; /* Indian Red */
+  background-color: #cd5c5c;
 }
 
 .heart {
   position: absolute;
   width: 30px;
   height: 30px;
-  background-color: #ff1493; /* Deep Pink */
+  background-color: #ff1493;
   border-radius: 50%;
   animation: float 5s ease-in-out infinite;
 }
@@ -89,8 +89,25 @@ button:hover {
 </div>
 
 <script>
-  // ... (JavaScript from previous example, but keep the button actions)
+const yesButton = document.getElementById('yesButton');
+const noButton = document.getElementById('noButton');
+const buttonContainer = document.querySelector('.container');
+
+yesButton.addEventListener('click', () => {
+    window.open('https://www.example.com/valentines-date?message=See you!', '_blank');
+});
+
+function moveNoButton() {
+    let maxX = buttonContainer.offsetWidth - noButton.offsetWidth;
+    let maxY = buttonContainer.offsetHeight - noButton.offsetHeight;
+    let randomX = Math.floor(Math.random() * maxX);
+    let randomY = Math.floor(Math.random() * maxY);
+    noButton.style.left = randomX + 'px';
+    noButton.style.top = randomY + 'px';
+}
+
+noButton.style.position = 'absolute';
+setInterval(moveNoButton, 150); 
 </script>
 </body>
 </html>
-
