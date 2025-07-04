@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schedule</title>
+    <style>
+        table,td{
+            width: 70%;
+            border-collapse: collapse;
+            border-color: red;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4682B4; /* Steel Blue */
+            color: white; /* White text for contrast */
+        }
+        td {
+            background-color: #D3D3D3; /* Light Gray */
+        }
+    </style>
+</head>
+<body> 
+    <h1>
+    <pre>
+                          Schedule
+    </pre>
+    </h1>
+    <table>
+        <tr>
+           <th>Time</th>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+        </tr>
+        <tr>
+          <td>12:30pm-12:45pm</td>
+          <td colspan="6" style="color:blue; text-align:center;">ARRIVAL</td>
+        </tr>
+        <tr>
+            <td>12:55 pm-1:45 pm</td>
+            <td>Computer Programming Java NC III</td>
+            <td>Computer Programming Java NC III</td>
+            <td>Computer Programming Java NC III</td>
+            <td>Computer Programming Java NC III</td>
+            <td>Homeroom guidance</td>
+        </tr>
+        <tr>
+            <td>1:45pm-2:35pm</td>
+            <td>Computer Programming Java NC III</td>
+            <td>Computer Programming Java NC III</td>
+            <td>Computer Programming Java NC III</td>
+            <td>Computer Programming Java NC III</td>
+            <td>Media Information Literacy</td>
+        </tr>
+        <tr>
+            <td>2:35pm-3:25pm</td>
+            <td>Understanding Culture, Society & Politics</td>
+            <td>Understanding Culture, Society & Politics</td>
+            <td>Practical Research 2</td>
+            <td>Practical Research 2</td>
+            <td>Understanding Culture, Society & Politics</td>
+        </tr>
+        <tr>
+            <td>3:25pm-4:15pm</td>
+            <td>English for Academic and Professional Purposes</td>
+            <td>Media Information Literacy</td>
+            <td>Practical Research 2</td>
+            <td>Practical Research 2</td>
+            <td>English for Academic and Professional Purposes</td>
+        </tr>
+      <tr>
+          <td>4:15pm-4:30pm</td>
+          <td colspan="6" style="color:blue; text-align:center;">BREAK</td>
+        </tr>
+      <tr>
+            <td>4:30pm-5:20pm</td>
+            <td>Contemporary Philippines Arts From The Region</td>
+            <td>Contemporary Philippines Arts From The Region</td>
+            <td>Media Information Literacy</td>
+            <td>Introduction to the Philosophy of the Human Person</td>
+            <td>English for Academic and Professional Purposes</td>
+        </tr>
+      <tr>
+            <td>5:20pm-6:10pm</td>
+            <td>     </td>
+            <td>PE & HEALTH 2</td>
+            <td>Introduction to the Philosophy of the Human Person</td>
+            <td>English for Academic and Professional Purposes</td>
+            <td>Media Information Literacy</td>
+        </tr>
+      <tr>
+            <td>6:10pm-7:00pm</td>
+            <td>Introduction to the Philosophy of the Human Person</td>
+            <td>Understanding Culture, Society & Politics</td>
+            <td>Introduction to the Philosophy of the Human Person</td>
+            <td>Contemporary Philippines Arts From The Region</td>
+            <td>Contemporary Philippines Arts From The Region</td>
+        </tr>
+      <tr>
+          <td>7:00pm-7:15pm</td>
+          <td colspan="6" style="color:blue; text-align:center;">Departure</td>
+        </tr>
+    </table>
+</body>
+</html>
