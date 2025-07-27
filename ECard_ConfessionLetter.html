@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Confession</title>
+<style>
+body {
+  background-color: #f0f0f0;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.card, .confession-page {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  width: 600px;
+  margin: 20px auto;
+}
+
+.card h1, .confession-page h2 {
+  color: #388E8E;
+}
+
+.confession-page {
+  display: none;
+}
+
+.confession-page.show {
+  display: block;
+}
+
+.confession-page h2 {
+  color: #a0522d;
+}
+
+
+.confession-box {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #8b4513;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+}
+
+.confession-box h3 {
+    color: #8b4513;
+}
+
+#submissionMessage {
+    display: none;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#submissionMessage.show {
+    display: block;
+}
+
+a {
+  text-decoration: none;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.image-container {
+  margin-top: 20px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.navigation-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.navigation-buttons button {
+  background-color: #8b4513;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <h1>A Confession</h1>
+  <p>Enter the code given:</p>
+  <input type="text" id="code" placeholder="Enter code">
+  <button onclick="checkCode()">Submit</button>
+</div>
+
+<div class="confession-page" id="confessionPage1">
+    <h2>My Confession</h2>
+    <div class="image-container">
+      <img src="church-image.jpg" alt="Church Image">
+    </div>
+    <p>I've been wanting to tell you this for a while now. It's been on my heart, and I hope this is received well.</p>
+    <p>I have feelings for you. It started... <a href="#" onclick="showConfession('pano')"> Click to read.</a></p>
+
+    <div id="shortConfession" class="confession-box" style="display:none;">
+      <h3>My Feelings</h3>
+      <p>[Write your short confession here. Be sincere and respectful. Keep it brief.]</p>
+      <p><a href="#" onclick="showPage2()">Continue to the next page</a></p>
+    </div>
+    <div id="longConfession" class="confession-box" style="display:none;">
+      <h3>How I Fell For You</h3>
+      <p>[Write a detailed explanation of how you developed feelings for your crush. Be thoughtful, sincere, and respectful. This should be a more in-depth version than the shorter confession above.]</p>
+      <p><a href="#" onclick="showPage2()">Continue to the next page</a></p>
+    </div>
+    <div id="panoConfession" class="confession-box" style="display:none;">
+      <h3>Paano Kita Nagustuhan</h3>
+      <p>[Write your explanation of how you developed feelings for your crush here.  This is similar to How I Fell For You, but may be worded differently.]</p>
+      <p><a href="#" onclick="showPage2()">Continue to the next page</a></p>
+    </div>
+    <div id="submissionMessage">Confession submitted successfully!</div>
+    <div class="navigation-buttons">
+        <button onclick="showPage2()">Next</button>
+    </div>
+</div>
+
+
+<div class="confession-page" id="confessionPage2">
+  <div class="navigation-buttons">
+    <button onclick="showPage1()">Back</button>
+    <button onclick="showPage3()">Next</button>
+  </div>
+  <h2>More about my feelings</h2>
+  <p>[Add more details about your feelings here. This section should appear after the initial confession.]</p>
+  <p>This is a more detailed explanation. [Add more content here.]</p>
+</div>
+
+<div class="confession-page" id="confessionPage3">
+    <div class="navigation-buttons">
+        <button onclick="showPage2()">Back</button>
+    </div>
+    <h2>Final thoughts</h2>
+    <p>[Write your final thoughts here]</p>
+</div>
+
+
+<script>
+function checkCode() {
+  let enteredCode = document.getElementById("code").value.toLowerCase();
+  let confessionPage1 = document.getElementById("confessionPage1");
+  let card = document.getElementById("card");
+  if (enteredCode === "jabwidkak19") {
+    card.style.display = "none";
+    confessionPage1.classList.add("show");
+    document.getElementById("submissionMessage").classList.add("show");
+  } else {
+    alert("Incorrect code.");
+  }
+}
+
+function showConfession(type) {
+  if (type === 'short') {
+    document.getElementById("shortConfession").style.display = "block";
+  } else if (type === 'pano') {
+    document.getElementById("panoConfession").style.display = "block";
+  } else {
+    document.getElementById("longConfession").style.display = "block";
+  }
+}
+
+function showPage(page) {
+    let pages = ["confessionPage1", "confessionPage2", "confessionPage3"];
+    pages.forEach(p => document.getElementById(p).classList.remove("show"));
+    document.getElementById(pages[page -1]).classList.add("show");
+}
+
+
+function showPage2() {
+    showPage(2);
+}
+
+function showPage1() {
+    showPage(1);
+}
+
+function showPage3() {
+    showPage(3);
+}
+</script>
+
+</body>
+</html>
