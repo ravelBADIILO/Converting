@@ -79,12 +79,22 @@ a:hover {
   border-radius: 50%;
   overflow: hidden;
   background-color: #fff;
+  display: inline-block; /* Allow inline arrangement */
+  vertical-align: top; /* Align vertically */
+  margin-right: 20px; /* Add spacing between image and text */
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.image-container + h1 { /* Selects h1 immediately following .image-container */
+  display: inline-block; /* Allow inline arrangement */
+  vertical-align: top; /* Align vertically */
+  font-size: 2em;
+  color: #388E8E;
 }
 
 .navigation-buttons {
@@ -116,22 +126,23 @@ a:hover {
     <div class="image-container">
       <img src="church-image.jpg" alt="Church Image">
     </div>
+    <h1>Hi Ella</h1>
     <p>I've been wanting to tell you this for a while now. It's been on my heart, and I hope this is received well.</p>
-    <p>I have feelings for you. It started... <a href="#" onclick="showConfession('pano')"> Click to read.</a></p>
+    <p>I have feelings for you. It started... <a href="#" onclick="showConfession('pano')">Click to read.</a></p>
 
     <div id="shortConfession" class="confession-box" style="display:none;">
       <h3>My Feelings</h3>
-      <p>[Write your short confession here. Be sincere and respectful. Keep it brief.]</p>
+      <p>I have a crush on you for a long time now. I can't explain the exact moment but I'm sure it started way back.</p>
       <p><a href="#" onclick="showPage2()">Continue to the next page</a></p>
     </div>
     <div id="longConfession" class="confession-box" style="display:none;">
       <h3>How I Fell For You</h3>
-      <p>[Write a detailed explanation of how you developed feelings for your crush. Be thoughtful, sincere, and respectful. This should be a more in-depth version than the shorter confession above.]</p>
+      <p>It all started when we first met. Your smile, your kindness, your intelligence... everything about you captivated me.  I found myself thinking about you constantly, daydreaming about our conversations. The more I got to know you, the more I realized how much I admired you.  I've never felt this way about anyone before.</p>
       <p><a href="#" onclick="showPage2()">Continue to the next page</a></p>
     </div>
     <div id="panoConfession" class="confession-box" style="display:none;">
       <h3>Paano Kita Nagustuhan</h3>
-      <p>[Write your explanation of how you developed feelings for your crush here.  This is similar to How I Fell For You, but may be worded differently.]</p>
+      <p>Mula nang una kitang makilala, para bang may kakaiba na. Ang ganda ng ngiti mo, ang bait mo, ang talino mo... lahat sa iyo ay nakaka-akit. Lagi kitang iniisip, iniimagine ang mga usapan natin.  Habang tumatagal, mas lalo kong narerealize kung gaano kita hinahangaan. Hindi ko pa naramdaman ito sa iba.</p>
       <p><a href="#" onclick="showPage2()">Continue to the next page</a></p>
     </div>
     <div id="submissionMessage">Confession submitted successfully!</div>
@@ -147,8 +158,8 @@ a:hover {
     <button onclick="showPage3()">Next</button>
   </div>
   <h2>More about my feelings</h2>
-  <p>[Add more details about your feelings here. This section should appear after the initial confession.]</p>
-  <p>This is a more detailed explanation. [Add more content here.]</p>
+  <p>I really value our friendship and I wouldn't want to ruin that. But I also need to be honest about my feelings. I hope you can understand.</p>
+  <p>This is a more detailed explanation.  [Add more content here.]</p>
 </div>
 
 <div class="confession-page" id="confessionPage3">
@@ -156,7 +167,7 @@ a:hover {
         <button onclick="showPage2()">Back</button>
     </div>
     <h2>Final thoughts</h2>
-    <p>[Write your final thoughts here]</p>
+    <p>I hope you can accept my feelings, even if you don't feel the same way.  It's okay either way. I just needed to let you know how I feel.</p>
 </div>
 
 
