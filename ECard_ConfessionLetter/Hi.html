@@ -4,7 +4,7 @@
 <title>Confession</title>
 <style>
 body {
-  background-color: #f0f0f0;
+  background: linear-gradient(to right, #FF69B4, #64B5F6); /* Pink to light blue gradient */
   font-family: 'Arial', sans-serif;
   margin: 0;
   display: flex;
@@ -14,17 +14,19 @@ body {
 }
 
 .card, .confession-page {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  background-color: #FF69B4; /* Pink background */
+  border-radius: 20px; /* More rounded corners */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  padding: 30px;
   text-align: center;
-  width: 600px;
+  width: 350px; /* Smaller width to match the image */
   margin: 20px auto;
+  color: white; /* White text */
 }
 
 .card h1, .confession-page h2 {
-  color: #388E8E;
+  color: white; /* White heading text */
+  font-weight: bold;
 }
 
 .confession-page {
@@ -36,35 +38,36 @@ body {
 }
 
 .confession-page h2 {
-  color: #a0522d;
+  color: white; /* White heading text */
 }
 
-
 .confession-box {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #8b4513;
-    border-radius: 5px;
-    background-color: #f5f5f5;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #fff; /* White border */
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly translucent white background */
+  color: white; /* White text */
 }
 
 .confession-box h3 {
-    color: #8b4513;
+  color: white; /* White heading text */
 }
 
 #submissionMessage {
-    display: none;
-    margin-top: 20px;
-    font-weight: bold;
+  display: none;
+  margin-top: 20px;
+  font-weight: bold;
+  color: white;
 }
 
 #submissionMessage.show {
-    display: block;
+  display: block;
 }
 
 a {
   text-decoration: none;
-  color: #ffd700;
+  color: white; /* White link text */
   font-weight: bold;
 }
 
@@ -74,14 +77,14 @@ a:hover {
 
 .image-container {
   margin-top: 20px;
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   overflow: hidden;
   background-color: #fff;
-  display: inline-block; /* Allow inline arrangement */
-  vertical-align: top; /* Align vertically */
-  margin-right: 20px; /* Add spacing between image and text */
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
 }
 
 .image-container img {
@@ -90,11 +93,11 @@ a:hover {
   object-fit: cover;
 }
 
-.image-container + h1 { /* Selects h1 immediately following .image-container */
-  display: inline-block; /* Allow inline arrangement */
-  vertical-align: top; /* Align vertically */
-  font-size: 2em;
-  color: #388E8E;
+.image-container + h1 {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.5em;
+  color: white;
 }
 
 .navigation-buttons {
@@ -103,14 +106,65 @@ a:hover {
 }
 
 .navigation-buttons button {
-  background-color: #8b4513;
-  color: white;
+  background-color: #fff; /* White button */
+  color: #FF69B4; /* Pink text */
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   margin: 0 10px;
+  font-weight: bold;
 }
+
+input[type="text"] {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+button {
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #FFB6C1; /* Lighter pink on hover */
+}
+
+.card h1 {
+    font-size: 2em;
+}
+
+#confessionPage1 {
+    background-color: #FF69B4;
+}
+
+#confessionPage2, #confessionPage3 {
+    background-color: #64B5F6; /* Light blue */
+    color: white;
+}
+
+#confessionPage2 h2, #confessionPage3 h2 {
+    color: white;
+}
+
+.confession-box {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+}
+
+.confession-box h3 {
+    color: white;
+}
+
 </style>
 </head>
 <body>
@@ -126,7 +180,7 @@ a:hover {
     <div class="image-container">
       <img src="Screenshot_20250728_132610_com_hihonor_photos_SlotAlbumActivity.jpg">
     </div>
-    <h1>Hi Ella</h1>
+    <h1>Hi [name your crush] </h1>
     <p>I've been wanting to tell you this for a while now. It's been on my heart, and I hope this is received well.</p>
     <p>I have feelings for you. It started... <a href="#" onclick="showConfession('pano')">Click to read.</a></p>
 
