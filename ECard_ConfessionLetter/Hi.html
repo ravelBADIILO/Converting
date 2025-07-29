@@ -93,11 +93,11 @@ a:hover {
   object-fit: cover;
 }
 
-.image-container + h1 {
-  display: inline-block;
-  vertical-align: top;
-  font-size: 1.5em;
-  color: white;
+.image-container + div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .navigation-buttons {
@@ -179,21 +179,22 @@ button:hover {
     <div class="image-container">
       <img src="Screenshot_20250728_132610_com_hihonor_photos_SlotAlbumActivity.jpg" alt="Church Image">
     </div>
-  <div>
-    <h1>Hi Ate Ella ✌️</h1>
-    <h1>It's Me Ravel/VelVel/Red Velvet Cake Whatever you call</h1>
-  </div>
+    <div>
+        <h1>Hi Ate Ella ✌️</h1>
+        <h1>It's Me Ravel/VelVel/Red Velvet Cake Whatever you call me</h1>
+    </div>
     <p>I've been wanting to tell you this for a while now. It's been on my heart, and I hope this is received well.</p>
     <p>I have feelings for you. It started...</p>
     <p><a href="#" onclick="showConfession('pano')">Click to read.</a></p>
 
     <div id="shortConfession" class="confession-box" style="display:none;">
       <h3>My Feelings</h3>
+      <p>Short Confession Here</p>
       <p><a href="#" onclick="showPage2()">Continue to the next page</a></p>
     </div>
     <div id="longConfession" class="confession-box" style="display:none;">
       <h3>How I Fell For You</h3>
-      <p>It all started when we first met. Your smile, your kindness, your intelligence... everything about you captivated me.  I found myself thinking about you constantly, daydreaming about our conversations. The more I got to know you, the more I realized how much I admired you.  I've never felt this way about anyone before.</p>
+      <p>Long Confession Here</p>
       <p><a href="#" onclick="showPage2()">Continue to the next page</a></p>
     </div>
     <div id="panoConfession" class="confession-box" style="display:none;">
@@ -242,11 +243,11 @@ function checkCode() {
       confessionPage1.classList.add("show");
       document.getElementById("submissionMessage").classList.add("show");
     } else {
-      throw new Error("Incorrect code."); // Throw an error for better handling
+      throw new Error("Incorrect code.");
     }
   } catch (error) {
-    alert(error.message); // Display the error message in an alert
-    console.error("Error:", error); // Log the error to the browser's console for debugging
+    alert(error.message);
+    console.error("Error:", error);
   }
 }
 
