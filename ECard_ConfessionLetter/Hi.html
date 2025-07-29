@@ -4,7 +4,7 @@
 <title>Confession</title>
 <style>
 body {
-  background: linear-gradient(to right, #FF69B4, #64B5F6); /* Pink to light blue gradient */
+  background: linear-gradient(to right, #FF69B4, #64B5F6);
   font-family: 'Arial', sans-serif;
   margin: 0;
   display: flex;
@@ -14,18 +14,18 @@ body {
 }
 
 .card, .confession-page {
-  background-color: #FF69B4; /* Pink background */
-  border-radius: 20px; /* More rounded corners */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  background-color: #FF69B4;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   padding: 30px;
   text-align: center;
-  width: 350px; /* Smaller width to match the image */
+  width: 350px;
   margin: 20px auto;
-  color: white; /* White text */
+  color: white;
 }
 
 .card h1, .confession-page h2 {
-  color: white; /* White heading text */
+  color: white;
   font-weight: bold;
 }
 
@@ -38,20 +38,20 @@ body {
 }
 
 .confession-page h2 {
-  color: white; /* White heading text */
+  color: white;
 }
 
 .confession-box {
   margin-top: 20px;
   padding: 20px;
-  border: 1px solid #fff; /* White border */
+  border: 1px solid #fff;
   border-radius: 10px;
-  background-color: rgba(255, 255, 255, 0.1); /* Slightly translucent white background */
-  color: white; /* White text */
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
 .confession-box h3 {
-  color: white; /* White heading text */
+  color: white;
 }
 
 #submissionMessage {
@@ -67,7 +67,7 @@ body {
 
 a {
   text-decoration: none;
-  color: white; /* White link text */
+  color: white;
   font-weight: bold;
 }
 
@@ -106,8 +106,8 @@ a:hover {
 }
 
 .navigation-buttons button {
-  background-color: #fff; /* White button */
-  color: #FF69B4; /* Pink text */
+  background-color: #fff;
+  color: #FF69B4;
   padding: 10px 20px;
   border: none;
   border-radius: 10px;
@@ -122,7 +122,7 @@ input[type="text"] {
   margin: 10px 0;
   border: 1px solid white;
   border-radius: 5px;
-  background-color: rgba(255,255,255,0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   color: white;
 }
 
@@ -132,39 +132,38 @@ input[type="text"]:focus {
 }
 
 button {
-    transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #FFB6C1; /* Lighter pink on hover */
+  background-color: #FFB6C1;
 }
 
 .card h1 {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 #confessionPage1 {
-    background-color: #FF69B4;
+  background-color: #FF69B4;
 }
 
 #confessionPage2, #confessionPage3 {
-    background-color: #64B5F6; /* Light blue */
-    color: white;
+  background-color: #64B5F6;
+  color: white;
 }
 
 #confessionPage2 h2, #confessionPage3 h2 {
-    color: white;
+  color: white;
 }
 
 .confession-box {
-    background-color: rgba(255, 255, 255, 0.2);
-    border: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid #fff;
 }
 
 .confession-box h3 {
-    color: white;
+  color: white;
 }
-
 </style>
 </head>
 <body>
@@ -178,7 +177,7 @@ button:hover {
 <div class="confession-page" id="confessionPage1">
     <h2>My Confession</h2>
     <div class="image-container">
-      <img src="Screenshot_20250728_132610_com_hihonor_photos_SlotAlbumActivity.jpg">
+      <img src="church-image.jpg" alt="Church Image">
     </div>
     <h1>Hi Ate Ella ✌️ </h1>
     <p>I've been wanting to tell you this for a while now. It's been on my heart, and I hope this is received well.</p>
@@ -230,15 +229,22 @@ button:hover {
 
 <script>
 function checkCode() {
-  let enteredCode = document.getElementById("code").value.toLowerCase();
+  let enteredCode = document.getElementById("code").value;
   let confessionPage1 = document.getElementById("confessionPage1");
   let card = document.getElementById("card");
-  if (enteredCode === "JabwidKak19") {
-    card.style.display = "none";
-    confessionPage1.classList.add("show");
-    document.getElementById("submissionMessage").classList.add("show");
-  } else {
-    alert("Incorrect code.");
+  let correctCode = "a)chnnssr6ab*te";
+
+  try {
+    if (enteredCode.toLowerCase() === correctCode) {
+      card.style.display = "none";
+      confessionPage1.classList.add("show");
+      document.getElementById("submissionMessage").classList.add("show");
+    } else {
+      throw new Error("Incorrect code."); // Throw an error for better handling
+    }
+  } catch (error) {
+    alert(error.message); // Display the error message in an alert
+    console.error("Error:", error); // Log the error to the browser's console for debugging
   }
 }
 
